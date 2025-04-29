@@ -1,0 +1,14 @@
+public class LibroController {
+    
+    private LibroCRUDService libroService;
+
+    public String deleteUser(Interger id){
+        libroService.deleteLibro(id);
+        return "redirect:/index";
+    }
+    @GetMapping("/index")
+    public String showLibroList(Model modelo){
+        modelo.addAttribute("libros", libroService.findAll());
+        return "index";
+    }
+    }
